@@ -1,14 +1,13 @@
 
-
 # Run expressvpn in a container
 
 #   docker run -d -t --name expressvpn \
-#       --restart always \
 #       --cap-add=NET_ADMIN \
 #       --device=/dev/net/tun \
 #       --privileged \
 #       -e ACTIVATION_CODE= \
 #       polkaned/expressvpn
+#       /bin/bash
 
 FROM debian:buster-slim
 LABEL maintainer "benjamin@polkaned.net"
@@ -21,8 +20,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && wget -q "https://download.expressvpn.xyz/clients/linux/${APP}" -O /tmp/${APP} \
     && dpkg -i /tmp/${APP} \
-	&& rm -rf /tmp/*.deb \
-	&& apt-get purge -y --auto-remove wget
+    && rm -rf /tmp/*.deb \
+    && apt-get purge -y --auto-remove wget
 
 COPY entrypoint.sh /tmp/entrypoint.sh
 COPY expressvpnActivate.sh /tmp/expressvpnActivate.sh
