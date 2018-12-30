@@ -27,4 +27,5 @@ This container should be used as base layer.
 
 ### ACTIVATION_CODE
 A string containing your ExpressVPN activation code.
+
 `ACTIVATION_CODE=ABCD1EFGH2IJKL3MNOP4QRS`
