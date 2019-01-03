@@ -5,5 +5,5 @@ su -c 'umount /etc/resolv.conf'
 cp /tmp/resolv.conf /etc/resolv.conf
 service expressvpn restart
 /usr/bin/expect /tmp/expressvpnActivate.sh
-expressvpn connect
+expressvpn connect $SERVER
 exec "$@"

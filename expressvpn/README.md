@@ -14,6 +14,7 @@ This container should be used as base layer.
 
     docker run \
       --env=ACTIVATION_CODE={% your-activation-code %} \
+      --env=SERVER={% LOCATION/ALIAS/COUNTRY %} \
       --cap-add=NET_ADMIN \
       --device=/dev/net/tun \
       --privileged \
@@ -26,6 +27,11 @@ This container should be used as base layer.
 ## Configuration Reference
 
 ### ACTIVATION_CODE
-A string containing your ExpressVPN activation code.
+A mandatory string containing your ExpressVPN activation code.
 
 `ACTIVATION_CODE=ABCD1EFGH2IJKL3MNOP4QRS`
+
+### SERVER
+A optionnal string containing the ExpressVPN server LOCATION/ALIAS/COUNTRY. Connect to smart location if it is not set.
+
+`SERVER=ukbe`

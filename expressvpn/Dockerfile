@@ -1,18 +1,11 @@
 
 # Run expressvpn in a container
 
-#   docker run -d -t --name expressvpn \
-#       --cap-add=NET_ADMIN \
-#       --device=/dev/net/tun \
-#       --privileged \
-#       -e ACTIVATION_CODE= \
-#       polkaned/expressvpn
-#       /bin/bash
-
 FROM debian:buster-slim
 LABEL maintainer "benjamin@polkaned.net"
 
 ENV ACTIVATION_CODE Code
+ENV LOCATION smart
 ARG APP=expressvpn_1.5.1_amd64.deb
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
