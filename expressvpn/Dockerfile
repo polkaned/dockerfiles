@@ -6,7 +6,7 @@ LABEL maintainer "benjamin@polkaned.net"
 
 ENV ACTIVATION_CODE Code
 ENV LOCATION smart
-ARG APP=expressvpn_1.5.1_amd64.deb
+ARG APP=expressvpn_2.0.0-1_amd64
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates wget expect iproute2 \
