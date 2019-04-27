@@ -6,7 +6,7 @@ LABEL maintainer "benjamin@polkaned.net"
 
 ENV ACTIVATION_CODE Code
 ENV LOCATION smart
-ARG APP=expressvpn_2.0.0-1_amd64
+ARG APP=expressvpn_2.1.0-1_amd64.deb
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates wget expect iproute2 \
@@ -19,4 +19,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY entrypoint.sh /tmp/entrypoint.sh
 COPY expressvpnActivate.sh /tmp/expressvpnActivate.sh
 
-ENTRYPOINT ["/usr/bin/bash", "/tmp/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "/tmp/entrypoint.sh"]
