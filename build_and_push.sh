@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_ID_USER="polkaned"
+DOCKER_ID_USER="lozachmp"
 
 directories=(*/)
 for ((i=${#directories[@]}-1 ; i>=0 ; i--)) ; do
