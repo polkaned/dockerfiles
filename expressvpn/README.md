@@ -35,3 +35,34 @@ A mandatory string containing your ExpressVPN activation code.
 A optionnal string containing the ExpressVPN server LOCATION/ALIAS/COUNTRY. Connect to smart location if it is not set.
 
 `SERVER=ukbe`
+
+## Docker Compose
+Other containers can use the network of the expressvpn container by declaring the entry `network_mode: service:expressvpn`.
+In this case all traffic is routed via the vpn container. To reach the other containers locally the port forwarding must be done in the vpn container (the network mode service does not allow a port configuration)
+
+  ```
+  expressvpn:
+    container_name: expressvpn
+    image: polkaned/expressvpn
+    environment:
+      - ACTIVATION_CODE=EN5SC4DUBMGGGFNYVLQKAEM
+      - SERVER=Austria
+    cap_add:
+      - NET_ADMIN
+    devices: 
+      - /dev/net/tun
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+    privileged: true
+    restart: unless-stopped
+    ports:
+      # ports of other containers that use the vpn (to access them locally)
+  
+  downloader:
+    image: example/downloader
+    container_name: downloader
+    network_mode: service:expressvpn
+    depends_on:
+      - expressvpn
+  ```
