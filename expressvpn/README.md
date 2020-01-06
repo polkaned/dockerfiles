@@ -24,17 +24,6 @@ This container should be used as base layer.
       polkaned/expressvpn \
       /bin/bash
 
-## Configuration Reference
-
-### ACTIVATION_CODE
-A mandatory string containing your ExpressVPN activation code.
-
-`ACTIVATION_CODE=ABCD1EFGH2IJKL3MNOP4QRS`
-
-### SERVER
-A optionnal string containing the ExpressVPN server LOCATION/ALIAS/COUNTRY. Connect to smart location if it is not set.
-
-`SERVER=ukbe`
 
 ## Docker Compose
 Other containers can use the network of the expressvpn container by declaring the entry `network_mode: service:expressvpn`.
@@ -45,8 +34,8 @@ In this case all traffic is routed via the vpn container. To reach the other con
     container_name: expressvpn
     image: polkaned/expressvpn
     environment:
-      - ACTIVATION_CODE=EN5SC4DUBMGGGFNYVLQKAEM
-      - SERVER=Austria
+      - ACTIVATION_CODE={% your-activation-code %}
+      - SERVER={% LOCATION/ALIAS/COUNTRY %}
     cap_add:
       - NET_ADMIN
     devices: 
@@ -66,3 +55,15 @@ In this case all traffic is routed via the vpn container. To reach the other con
     depends_on:
       - expressvpn
   ```
+
+## Configuration Reference
+
+### ACTIVATION_CODE
+A mandatory string containing your ExpressVPN activation code.
+
+`ACTIVATION_CODE=ABCD1EFGH2IJKL3MNOP4QRS`
+
+### SERVER
+A optionnal string containing the ExpressVPN server LOCATION/ALIAS/COUNTRY. Connect to smart location if it is not set.
+
+`SERVER=ukbe`
