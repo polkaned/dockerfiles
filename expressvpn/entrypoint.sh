@@ -6,5 +6,6 @@ cp /tmp/resolv.conf /etc/resolv.conf
 service expressvpn restart
 /usr/bin/expect /tmp/expressvpnActivate.sh
 expressvpn protocol tcp
+expressvpn preferences set force_vpn_dns false
 expressvpn connect $SERVER
 exec "$@"
