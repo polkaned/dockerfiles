@@ -6,10 +6,10 @@ LABEL maintainer "lozachmp@gmail.com"
 
 ENV ACTIVATION_CODE Code
 ENV LOCATION smart
-ARG APP=expressvpn_2.3.1-1_amd64.deb
+ARG APP=expressvpn_2.3.4-1_amd64.deb
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    ca-certificates wget expect iproute2 \
+    ca-certificates wget expect iproute2 curl \
     && rm -rf /var/lib/apt/lists/* \
     && wget -q "https://download.expressvpn.xyz/clients/linux/${APP}" -O /tmp/${APP} \
     && dpkg -i /tmp/${APP} \
