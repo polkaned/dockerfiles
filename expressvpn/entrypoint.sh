@@ -6,4 +6,5 @@ cp /tmp/resolv.conf /etc/resolv.conf
 service expressvpn restart
 /usr/bin/expect /tmp/expressvpnActivate.sh
 expressvpn connect $SERVER
+expressvpn autoconnect true
 exec "$@"
