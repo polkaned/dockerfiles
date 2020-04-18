@@ -6,7 +6,7 @@ LABEL maintainer "benjamin@polkaned.net"
 
 ENV ACTIVATION_CODE Code
 ENV LOCATION smart
-ARG APP=expressvpn_2.4.4.19-1_amd64.deb
+ARG APP=eexpressvpn_2.4.5.2-1_amd64.deb
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates wget expect iproute2 curl \
