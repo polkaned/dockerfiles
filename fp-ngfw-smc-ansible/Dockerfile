@@ -1,5 +1,5 @@
 
-# Run expressvpn in a container
+# Run Ansible modules for configuration and automation of Forcepoint NGFW Next Generation Firewall in a container
 
 FROM debian:bullseye-slim
 LABEL maintainer "benjamin@polkaned.net"
