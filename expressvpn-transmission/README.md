@@ -13,12 +13,16 @@
     docker run \
       --volume=/home/user/Torrents:/var/lib/transmission-daemon/downloads \
       --env=ACTIVATION_CODE={% your-activation-code %} \
-      --env=SERVER={% LOCATION/ALIAS/COUNTRY %} \
+    [ --env=SERVER={% LOCATION/ALIAS/COUNTRY %} \]
+    [ --env=T_ALLOWED={% your-allowed-ip-list %} \]
+    [ --env=T_USERNAME={% your-username %} \
+      --env=T_PASSWORD={% your-password %} \]
       --cap-add=NET_ADMIN \
       --device=/dev/net/tun \
       --privileged \
       --detach=true \
       --tty=true \
+    [ -p 9091:9091 \]
       --name=expressvpn-transmission \
       polkaned/expressvpn-transmission
 
@@ -38,3 +42,14 @@ A mandatory string containing your ExpressVPN activation code.
 A optionnal string containing the ExpressVPN server LOCATION/ALIAS/COUNTRY. Connect to smart location if it is not set.
 
 `SERVER=ukbe`
+
+### T_ALLOWED
+A optionnal string containing the Transmission IP addresses' whitelist. 127.0.0.1 is not set.
+
+`T_ALLOWED=127.0.0.1,172.17.0.1`
+
+### T_USERNAME & T_PASSWORD
+Optionnal strings containing the Transmission username and password if you want to authenticate. There is no authentication if not set.
+
+    T_USERNAME=admin
+    T_PASSWORD=********
