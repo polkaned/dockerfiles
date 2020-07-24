@@ -2,7 +2,7 @@
 # Run expressvpn in a container
 
 FROM debian:buster-slim
-LABEL maintainer "benjamin@polkaned.net"
+LABEL maintainer="benjamin@polkaned.net"
 
 ENV ACTIVATION_CODE Code
 ENV LOCATION smart
