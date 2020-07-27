@@ -2,7 +2,7 @@
 # Run expressvpn and transmission in a container
 
 FROM polkaned/expressvpn:latest
-LABEL maintainer "benjamin@polkaned.net"
+LABEL maintainer="benjamin@polkaned.net"
 
 ENV T_ALLOWED=127.0.0.1
 ENV T_USERNAME=

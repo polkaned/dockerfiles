@@ -64,6 +64,6 @@ A mandatory string containing your ExpressVPN activation code.
 `ACTIVATION_CODE=ABCD1EFGH2IJKL3MNOP4QRS`
 
 ### SERVER
-A optionnal string containing the ExpressVPN server LOCATION/ALIAS/COUNTRY. Connect to smart location if it is not set.
+A optional string containing the ExpressVPN server LOCATION/ALIAS/COUNTRY. Connect to smart location if it is not set.
 
 `SERVER=ukbe`

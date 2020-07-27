@@ -39,17 +39,17 @@ A mandatory string containing your ExpressVPN activation code.
 `ACTIVATION_CODE=ABCD1EFGH2IJKL3MNOP4QRS`
 
 ### SERVER
-A optionnal string containing the ExpressVPN server LOCATION/ALIAS/COUNTRY. Connect to smart location if it is not set.
+A optional string containing the ExpressVPN server LOCATION/ALIAS/COUNTRY. Connect to smart location if it is not set.
 
 `SERVER=ukbe`
 
 ### T_ALLOWED
-A optionnal string containing the Transmission IP addresses' whitelist. 127.0.0.1 is not set.
+A optional string containing the Transmission IP addresses' whitelist. 127.0.0.1 is not set.
 
 `T_ALLOWED=127.0.0.1,172.17.0.1`
 
 ### T_USERNAME & T_PASSWORD
-Optionnal strings containing the Transmission username and password if you want to authenticate. There is no authentication if not set.
+Optional strings containing the Transmission username and password if you want to authenticate. There is no authentication if not set.
 
     T_USERNAME=admin
     T_PASSWORD=********
