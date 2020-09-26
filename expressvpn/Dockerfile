@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates wget expect iproute2 curl \
     && rm -rf /var/lib/apt/lists/*
 
-ARG APP=expressvpn_2.6.3.3-1_amd64.deb
+ARG APP=expressvpn_3.0.2.12-1_amd64.deb
 
 RUN wget -q "https://download.expressvpn.xyz/clients/linux/${APP}" -O /tmp/${APP} \
     && dpkg -i /tmp/${APP} \
