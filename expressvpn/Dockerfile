@@ -6,12 +6,14 @@ LABEL maintainer="benjamin@polkaned.net"
 
 ENV ACTIVATION_CODE Code
 ENV LOCATION smart
-ARG APP=expressvpn_2.6.3.3-1_amd64.deb
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates wget expect iproute2 curl \
-    && rm -rf /var/lib/apt/lists/* \
-    && wget -q "https://download.expressvpn.xyz/clients/linux/${APP}" -O /tmp/${APP} \
+    && rm -rf /var/lib/apt/lists/*
+
+ARG APP=expressvpn_2.6.3.3-1_amd64.deb
+
+RUN wget -q "https://download.expressvpn.xyz/clients/linux/${APP}" -O /tmp/${APP} \
     && dpkg -i /tmp/${APP} \
     && rm -rf /tmp/*.deb \
     && apt-get purge -y --auto-remove wget
