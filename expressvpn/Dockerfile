@@ -1,7 +1,8 @@
 
 # Run expressvpn in a container
 
-FROM debian:bullseye
+FROM debian:bullseye-slim
+
 LABEL maintainer="benjamin@polkaned.net"
 
 ENV ACTIVATION_CODE Code
