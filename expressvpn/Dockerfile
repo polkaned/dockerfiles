@@ -7,10 +7,7 @@ LABEL maintainer="benjamin@polkaned.net"
 
 ENV ACTIVATION_CODE Code
 ENV LOCATION smart
-
-# auto, udp, tcp, lightway_udp, lightway_tcp
 ENV PREFERRED_PROTOCOL auto
-# auto, aes, chacha20
 ENV LIGHTWAY_CIPHER auto
 
 ARG APP=expressvpn_3.7.0.29-1_amd64.deb
