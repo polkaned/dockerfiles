@@ -15,6 +15,8 @@ This container should be used as base layer.
     docker run \
       --env=ACTIVATION_CODE={% your-activation-code %} \
       --env=SERVER={% LOCATION/ALIAS/COUNTRY %} \
+      --env=PREFERRED_PROTOCOL={% auto, udp, tcp, lightway_udp, lightway_tcp %} \
+      --env=LIGHTWAY_CIPHER={% auto, aes, chacha20 %} \
       --cap-add=NET_ADMIN \
       --device=/dev/net/tun \
       --privileged \
@@ -36,6 +38,8 @@ In this case all traffic is routed via the vpn container. To reach the other con
     environment:
       - ACTIVATION_CODE={% your-activation-code %}
       - SERVER={% LOCATION/ALIAS/COUNTRY %}
+      - PREFERRED_PROTOCOL={% auto, udp, tcp, lightway_udp, lightway_tcp %}
+      - LIGHTWAY_CIPHER={% auto, aes, chacha20 %}
     cap_add:
       - NET_ADMIN
     devices: 
