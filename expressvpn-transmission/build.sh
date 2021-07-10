@@ -35,3 +35,8 @@ echo "~> Push to registry..."
 docker push --all-tags polkaned/expressvpn-transmission
 echo ""
 
+echo "~> Cleaning..."
+docker rmi polkaned/expressvpn-transmission:latest
+docker rmi polkaned/expressvpn-transmission:${tag}
+docker rmi expressvpn-transmission:${tag}
+echo ""
