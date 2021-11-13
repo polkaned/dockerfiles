@@ -23,4 +23,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY entrypoint.sh /tmp/entrypoint.sh
 COPY expressvpnActivate.sh /tmp/expressvpnActivate.sh
 
+HEALTHCHECK --interval=10s --timeout=5s --start-period=60s --retries=3 CMD if expressvpn status | grep -q Connected;then true;else false;fi || exit 1
+
 ENTRYPOINT ["/bin/bash", "/tmp/entrypoint.sh"]
