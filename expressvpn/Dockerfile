@@ -10,7 +10,7 @@ ENV LOCATION smart
 ENV PREFERRED_PROTOCOL auto
 ENV LIGHTWAY_CIPHER auto
 
-ARG APP=expressvpn_3.14.0.4-1_amd64.deb
+ARG APP=expressvpn_3.17.0.8-1_amd64.deb
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates wget expect iproute2 curl procps libnm0 \
