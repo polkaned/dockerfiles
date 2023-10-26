@@ -1,0 +1,22 @@
+---
+version: "3"
+services:
+  transmission:
+    image: polkaned/expressvpn-transmission
+    container_name: express-transmission
+    privileged: true
+    tty: true
+    volumes:
+      - /home/user/Torrents:/var/lib/transmission-daemon/downloads
+    environment:
+      ACTIVATION_CODE: EXPRESSVPN-ACTIVATION-CODE
+      T_ALLOWED: "127.0.0.1,192.168.0.*"
+      T_USERNAME: "username"
+      T_PASSWORD: "password"
+    devices:
+      - "/dev/net/tun"
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 9091:9091
+
