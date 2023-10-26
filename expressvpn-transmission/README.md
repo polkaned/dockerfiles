@@ -44,9 +44,9 @@ A optional string containing the ExpressVPN server LOCATION/ALIAS/COUNTRY. Conne
 `SERVER=ukbe`
 
 ### T_ALLOWED
-A optional string containing the Transmission IP addresses' whitelist. 127.0.0.1 is not set.
+A optional string containing the Transmission IP addresses' whitelist. 127.0.0.1 is not set. Use `*` for wildcards.
 
-`T_ALLOWED=127.0.0.1,172.17.0.1`
+`T_ALLOWED=127.0.0.1,172.17.0.1,192.168.0.*`
 
 ### T_USERNAME & T_PASSWORD
 Optional strings containing the Transmission username and password if you want to authenticate. There is no authentication if not set.
