@@ -17,8 +17,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && wget -q "https://www.expressvpn.works/clients/linux/${APP}" -O /tmp/${APP} \
     && dpkg -i /tmp/${APP} \
     && rm -rf /tmp/*.deb \
-    && apt-get purge -y --auto-remove wget
-    && apt-get update && apt-get upgrade expressvpn \
+    && apt-get update && apt-get upgrade -y expressvpn \
+    && apt-get purge -y --auto-remove wget \
     && rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh /tmp/entrypoint.sh
