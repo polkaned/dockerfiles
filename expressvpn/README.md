@@ -2,6 +2,8 @@
 
 This container should be used as base layer.
 
+Replace `polkaned/expressvpn` with `polkaned/expressvpn-wo-iptables` for usage without iptables (not recommanded due to DNS leaking).
+
 ## Prerequisites
 
 1. Get your activation code from ExpressVPN web site.
