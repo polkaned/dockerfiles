@@ -1,7 +1,7 @@
 
 # Run expressvpn in a container
 
-FROM debian:bullseye-slim AS expressvpn-base
+FROM debian:bookworm-slim AS expressvpn-base
 
 LABEL maintainer="benjamin@polkaned.net"
 
