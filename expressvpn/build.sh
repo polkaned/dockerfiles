@@ -34,8 +34,9 @@ else
 fi
 echo ""
 
-echo "~> Build the image..."
-docker build --pull --no-cache --rm --force-rm -f Dockerfile -t expressvpn:${tag} .
+echo "~> Build images..."
+docker build --pull --no-cache --rm --force-rm -f Dockerfile --target expressvpn-base -t expressvpn:${tag} .
+docker build --pull --no-cache --rm --force-rm -f Dockerfile --target expressvpn-wo-iptables -t expressvpn-wo-iptables:${tag} .
 echo ""
 
 echo "~> Delete testing container (if last test failed)..."
@@ -97,18 +98,24 @@ echo ""
 
 echo "~> Tag version to registry..."
 docker tag expressvpn:${tag} polkaned/expressvpn:${tag}
+docker tag expressvpn-wo-iptables:${tag} polkaned/expressvpn-wo-iptables:${tag}
 echo ""
 
 echo "~> Tag lastest to registry..."
 docker tag expressvpn:${tag} polkaned/expressvpn
+docker tag expressvpn-wo-iptables:${tag} polkaned/expressvpn-wo-iptables
 echo ""
 
 echo "~> Push to registry..."
 docker push --all-tags polkaned/expressvpn
+docker push --all-tags polkaned/expressvpn-wo-iptables
 echo ""
 
 echo "~> Cleaning..."
 docker rmi polkaned/expressvpn:latest
 docker rmi polkaned/expressvpn:${tag}
 docker rmi expressvpn:${tag}
+docker rmi polkaned/expressvpn-wo-iptables:latest
+docker rmi polkaned/expressvpn-wo-iptables:${tag}
+docker rmi expressvpn-wo-iptables:${tag}
 echo ""

@@ -1,7 +1,7 @@
 
 # Run expressvpn in a container
 
-FROM debian:bullseye-slim
+FROM debian:bullseye-slim AS expressvpn-base
 
 LABEL maintainer="benjamin@polkaned.net"
 
@@ -19,9 +19,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && dpkg -i /tmp/${APP} \
     && rm -rf /tmp/*.deb \
     && apt-get purge -y --auto-remove wget
-RUN update-alternatives --set iptables /usr/sbin/iptables-legacy && update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 
 COPY entrypoint.sh /tmp/entrypoint.sh
 COPY expressvpnActivate.sh /tmp/expressvpnActivate.sh
 
 ENTRYPOINT ["/bin/bash", "/tmp/entrypoint.sh"]
+
+FROM expressvpn-base AS expressvpn-wo-iptables
+
+RUN apt-get remove -y iptables
