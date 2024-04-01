@@ -31,9 +31,12 @@ Replace `polkaned/expressvpn` with `polkaned/expressvpn-wo-iptables` for usage w
 
 ## Docker Compose
 Other containers can use the network of the expressvpn container by declaring the entry `network_mode: service:expressvpn`.
-In this case all traffic is routed via the vpn container. To reach the other containers locally the port forwarding must be done in the vpn container (the network mode service does not allow a port configuration)
+In this case all traffic is routed via the vpn container. To reach the other containers locally the port forwarding must be done in the vpn container (the network mode service does not allow a port configuration).
+To avoid DNS leaking, you need to replace the resolv.conf on other containers.
 
   ```
+services:
+
   expressvpn:
     container_name: expressvpn
     image: polkaned/expressvpn
@@ -48,9 +51,11 @@ In this case all traffic is routed via the vpn container. To reach the other con
       - /dev/net/tun
     stdin_open: true
     tty: true
-    command: /bin/bash
+    command: /bin/bash -c "cp /etc/resolv.conf /shared_data/resolv.conf && bash"
     privileged: true
     restart: unless-stopped
+    volumes:
+      - shared-volume:/shared_data
     ports:
       # ports of other containers that use the vpn (to access them locally)
   
@@ -60,6 +65,12 @@ In this case all traffic is routed via the vpn container. To reach the other con
     network_mode: service:expressvpn
     depends_on:
       - expressvpn
+    command: /bin/bash -c "sleep 20 && cp /shared_data/resolv.conf /etc/resolv.conf && bash"
+    volumes:
+      - shared-volume:/shared_data
+
+volumes:
+  shared-volume:
   ```
 
 ## Configuration Reference
