@@ -11,7 +11,7 @@ done
 
 expressvpnctl background enable
 expressvpnctl set networklock true
-expressvpnctl set auto_connect true
+expressvpnctl set autoconnect true
 expressvpnctl set region $REGION
 expressvpnctl set protocol $PROTOCOL
 expressvpnctl login <(echo "$ACTIVATION_CODE")
