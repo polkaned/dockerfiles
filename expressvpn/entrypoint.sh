@@ -15,6 +15,6 @@ expressvpnctl set autoconnect true
 expressvpnctl set region $REGION
 expressvpnctl set protocol $PROTOCOL
 expressvpnctl login <(echo "$ACTIVATION_CODE")
-expressvpnctl connect $SERVER
+expressvpnctl connect $REGION
 
 exec "$@"

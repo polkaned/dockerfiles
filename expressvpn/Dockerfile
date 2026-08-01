@@ -9,11 +9,11 @@ ENV ACTIVATION_CODE=code
 ENV REGION=smart
 ENV PROTOCOL=auto
 
-ARG APP=expressvpn-linux-universal-5.1.0.12141_release.run
+ARG APP=expressvpn-linux-universal-14.2.0.13656_release.run
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libterm-readkey-perl ca-certificates wget expect iproute2 iputils-ping \
-    curl procps libnm0 iptables psmisc libatomic1 libglib2.0-0 libbrotli1 \
+    curl procps libnm0 iptables psmisc libatomic1 libglib2.0-0 libbrotli1 libdbus-1-3 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget -q "https://www.expressvpn.works/clients/linux/${APP}" -O /tmp/${APP}
